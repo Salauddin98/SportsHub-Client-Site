@@ -1,14 +1,19 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
-import login from "../../assets/login-animate.gif";
-import { Link } from "react-router-dom";
+import login from "../../../image/login.gif";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
-import useAuth from "../../hooks/useAuth";
-import Swal from "sweetalert2";
+import { AuthContext } from "../../../providers/AuthProviders";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
-  const { signInWithGoogle, signIn } = useAuth();
+  const { googleSignIn, setUser, userLogin } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+
   const {
     register,
     handleSubmit,
@@ -20,36 +25,29 @@ const Login = () => {
   const onSubmit = (data) => {
     console.log(data);
     // Handle form submission here
-    signIn(data.email, data.password)
+    userLogin(data.email, data.password)
       .then((result) => {
         console.log(result.user);
-        Swal.fire({
-          position: "top-center",
-          icon: "success",
-          title: "Login Successfully",
-          showConfirmButton: false,
-          timer: 1500,
-        });
+        navigate(from, { replace: true });
+        toast.success("Login Successful");
       })
-      .catch((err) => {
-        console.log(err.message);
+      .catch((error) => {
+        // console.log(err.message);
+        setError(error.message);
       });
   };
 
   const handleGoogleSignIn = () => {
-    signInWithGoogle()
+    googleSignIn()
       .then((result) => {
-        console.log(result.user);
-        Swal.fire({
-          position: "top-center",
-          icon: "success",
-          title: "Login Successfully",
-          showConfirmButton: false,
-          timer: 1500,
-        });
+        // console.log(result.user);
+        setUser(result);
+        navigate(from, { replace: true });
+        toast.success("Login Successful");
       })
-      .catch((err) => {
-        console.log(err.message);
+      .catch((error) => {
+        // console.log(err.message);
+        setError(error.message);
       });
   };
 
@@ -110,7 +108,9 @@ const Login = () => {
               <span className="text-red-500">This field is required</span>
             )}
           </div>
-
+          <div className="text-center">
+            {error && <span className="text-red-600">{error}</span>}
+          </div>
           <button
             type="submit"
             className="w-full bg-blue-500 text-white py-2 px-4 rounded"
