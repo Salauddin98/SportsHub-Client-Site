@@ -1,4 +1,4 @@
-// import { FaAddressCard, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
+import { FaAddressCard, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 
 import logo from "../../../assets/logo.png";
 const Footer = () => {
@@ -28,7 +28,7 @@ const Footer = () => {
               games designed specifically for children.
             </p>
           </div>
-          {/* <div className="space-y-3 mt-3">
+          <div className="space-y-3 mt-3">
             <span className="flex gap-3 items-center text-lg text-gray-400">
               <FaAddressCard className="text-xl "></FaAddressCard>
               <p>Dhaka,Bangladesh</p>
@@ -41,7 +41,7 @@ const Footer = () => {
               <FaPhoneAlt className="text-xl "></FaPhoneAlt>
               <p>+880 18748 14116</p>
             </span>
-          </div> */}
+          </div>
         </div>
         <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
           <div className="space-y-3">

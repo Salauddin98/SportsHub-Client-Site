@@ -117,7 +117,7 @@ const Navbar = () => {
                     Login
                   </button>
                 </Link>
-                <Link to="/register">
+                <Link to="/SignUp">
                   {" "}
                   <button className="btn btn-outline btn-primary">
                     Signup
@@ -261,7 +261,7 @@ const Navbar = () => {
                                 Login
                               </button>
                             </Link>
-                            <Link to="/register">
+                            <Link to="/SignUp">
                               {" "}
                               <button className="btn btn-outline btn-primary">
                                 Signup
