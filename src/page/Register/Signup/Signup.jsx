@@ -5,10 +5,13 @@ import { FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProviders";
 import { toast } from "react-hot-toast";
+import Swal from "sweetalert2";
+const img_hosting_token = import.meta.env.VITE_iMAGE_uPLOAD;
 
 const SignUp = () => {
   const { googleSignIn, setUser, createUser, GetProfile } =
     useContext(AuthContext);
+  const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`;
 
   const [error, setError] = useState("");
   const location = useLocation();
@@ -22,28 +25,52 @@ const SignUp = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    // Handle form submission here
-    createUser(data.email, data.password)
-      .then((result) => {
-        const loggedInUser = result.user;
-        console.log(loggedInUser);
-        // setUser(loggedInUser);
-        navigate("/login");
-        toast.success("SignUp Successfully");
-        GetProfile(data.name, data.image)
-          .then(() => {
-            console.log("done");
-          })
-          .catch((error) => {
-            console.log(error);
+    const image = data.image[0];
+    const formData = new FormData();
+    formData.append("image", image);
+
+    fetch(img_hosting_url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imgResponse) => {
+        if (imgResponse.success) {
+          const imgURL = imgResponse.data.display_url;
+
+          createUser(data.email, data.password).then((result) => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            toast.success("Sign Up Successfully");
+
+            GetProfile(data.name, imgURL)
+              .then(() => {
+                const saveUser = { name: data.name, email: data.email };
+                fetch("http://localhost:5000/users", {
+                  method: "POST",
+                  headers: {
+                    "content-type": "application/json",
+                  },
+                  body: JSON.stringify(saveUser),
+                })
+                  .then((res) => res.json())
+                  .then((data) => {
+                    if (data.insertedId) {
+                      // reset();
+                      Swal.fire({
+                        position: "top-center",
+                        icon: "success",
+                        title: "User created successfully.",
+                        showConfirmButton: false,
+                        timer: 1500,
+                      });
+                      // navigate('/');
+                    }
+                  });
+              })
+              .catch((error) => console.log(error));
           });
-      })
-      .catch((error) => {
-        // // setError(error.message);
-        // if (passwordError === error.message) {
-        //   setPasswordError("Email already in use");
-        // }
-        setError(error.message);
+        }
       });
   };
   const handleGoogleSignIn = () => {
@@ -62,7 +89,6 @@ const SignUp = () => {
         // toast.error(error.message);
       });
   };
-
   return (
     <div className="flex flex-col md:flex-row max-w-3xl lg:gap-12 mx-auto">
       <div className="md:w-1/2 p-8">
