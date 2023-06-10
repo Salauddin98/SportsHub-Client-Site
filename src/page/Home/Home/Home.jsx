@@ -6,6 +6,7 @@ const Home = () => {
       <Banner></Banner>
       <h1>kire</h1>
       <p>ar balo lage nh</p>
+      <p>scic</p>
     </div>
   );
 };
