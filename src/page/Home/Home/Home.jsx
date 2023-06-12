@@ -8,6 +8,7 @@ const Home = () => {
       <p>ar balo lage nh</p>
       <p>scic</p>
       <p>commit</p>
+      <p>hi</p>
     </div>
   );
 };
