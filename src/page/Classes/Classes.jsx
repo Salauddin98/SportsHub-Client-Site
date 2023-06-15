@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import SetRole from "../../hooks/SetRole";
-import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProviders";
 
 const Classes = () => {
   const [classes, setClasses] = useState();
   const { data } = SetRole();
-  const { user } = useAuth();
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   // console.log(data);
   useEffect(() => {
