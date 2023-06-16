@@ -17,7 +17,7 @@ const UpdateMyClass = () => {
     const { className, availableSeats, price } = d;
     const update = { className, availableSeats, price };
     fetch(
-      `https://foreign-language-center-client.vercel.app/singleClass/${data._id}`,
+      `https://summer-camp-serversite-salauddin98.vercel.app/singleClass/${data._id}`,
       {
         method: "PUT",
         headers: { "content-type": "application/json" },

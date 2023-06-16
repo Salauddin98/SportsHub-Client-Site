@@ -88,7 +88,7 @@ const Dashboard = () => {
         <div className="drawer-side">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
 
-          <ul className="menu p-4 w-80 h-full bg-stone-600 text-white text-base-content">
+          <ul className="menu p-4 w-80 h-full bg-teal-950 text-white ">
             <div className="flex items-center">
               {/* <img className="w-8" src={logo} alt="" /> */}
               <h1 className="text-xl font-bold">-Language</h1>

@@ -152,6 +152,7 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 
 import { AuthContext } from "../../../providers/AuthProviders";
 import useAxiosSecure from "../../../hooks/axiosSecure";
+import login from "../../../image/login.gif";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -177,7 +178,7 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         axios
-          .post(`https://foreign-language-center-client.vercel.app/jwt`, {
+          .post(`https://summer-camp-serversite-salauddin98.vercel.app/jwt`, {
             email: result.user.email,
           })
           .then((response) => {
@@ -207,10 +208,6 @@ const Login = () => {
 
   return (
     <div className="flex flex-col md:flex-row max-w-3xl mx-auto">
-      <div className="md:w-1/2 p-8 flex items-center justify-center">
-        {/* <img src={login} alt="Login" className="max-w-full" /> */}
-      </div>
-
       <div className="md:w-1/2 p-8">
         <h2 className="text-2xl font-bold mb-6">Login Please</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -261,10 +258,7 @@ const Login = () => {
 
           <p className="text-red-500">{error}</p>
 
-          <button
-            type="submit"
-            className="w-full btn btn-warning btn-sm  hover:bg-amber-600  text-white py-2 px-4 rounded"
-          >
+          <button type="submit" className="w-full btn btn-outline btn-primary">
             Login
           </button>
         </form>
@@ -280,6 +274,9 @@ const Login = () => {
           </Link>
           .
         </p>
+      </div>
+      <div className="md:w-1/2 p-8 flex items-center justify-center">
+        <img src={login} alt="Login" className="max-w-full" />
       </div>
     </div>
   );

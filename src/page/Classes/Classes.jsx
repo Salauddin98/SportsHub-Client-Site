@@ -11,7 +11,7 @@ const Classes = () => {
   const navigate = useNavigate();
   // console.log(data);
   useEffect(() => {
-    fetch("https://foreign-language-center-client.vercel.app/approveClass")
+    fetch("https://summer-camp-serversite-salauddin98.vercel.app/approveClass")
       .then((res) => res.json())
       .then((data) => setClasses(data));
   }, []);
@@ -45,13 +45,16 @@ const Classes = () => {
         enroll: cls.enroll,
       };
 
-      fetch("https://foreign-language-center-client.vercel.app/selectedClass", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(classData),
-      })
+      fetch(
+        "https://summer-camp-serversite-salauddin98.vercel.app/selectedClass",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(classData),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -68,18 +71,46 @@ const Classes = () => {
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3  gap-6 mt-6 mb-10">
       {classes?.map((cls) => (
-        <div
-          key={cls._id}
-          className={`card w-full  ${
-            +cls?.availableSeats === 0 ? "bg-red-400" : "bg-gray-200"
-          } shadow-xl`}
-        >
+        // <div
+        //   key={cls._id}
+        //   className={`card w-full  ${
+        //     +cls?.availableSeats === 0 ? "bg-red-400" : "bg-gray-200"
+        //   } shadow-xl`}
+        // >
+        //   <figure>
+        //     <img
+        //       className="h-60 w-full transition-transform duration-300 transform hover:scale-150"
+        //       src={cls.image}
+        //       alt="Shoes"
+        //     />
+        //   </figure>
+        //   <div className="card-body">
+        //     <h2 className="card-title">Name:{cls.className}</h2>
+        //     <p className=" font-medium text-base">
+        //       Instructor: {cls.instructorName}
+        //     </p>
+        //     <p className=" font-medium text-base">
+        //       Seats: {cls.availableSeats}
+        //     </p>
+        //     <p className=" font-medium text-base">Course fee: ${cls.price}</p>
+        //     <div className="card-actions justify-end">
+        //       <button
+        //         onClick={() => handelSelect(cls)}
+        //         className="btn btn-warning btn-sm hover:bg-amber-600"
+        //         disabled={
+        //           data?.role === "instractor" ||
+        //           data.role === "admin" ||
+        //           +cls?.availableSeats === 0
+        //         }
+        //       >
+        //         Select
+        //       </button>
+        //     </div>
+        //   </div>
+        // </div>
+        <div className="card w-full bg-base-100 shadow-xl" key={cls._id}>
           <figure>
-            <img
-              className="h-60 w-full transition-transform duration-300 transform hover:scale-150"
-              src={cls.image}
-              alt="Shoes"
-            />
+            <img src={cls.image} alt="Shoes" className="h-60" />
           </figure>
           <div className="card-body">
             <h2 className="card-title">Name:{cls.className}</h2>
@@ -93,7 +124,7 @@ const Classes = () => {
             <div className="card-actions justify-end">
               <button
                 onClick={() => handelSelect(cls)}
-                className="btn btn-warning btn-sm hover:bg-amber-600"
+                className="btn btn-info btn-sm "
                 disabled={
                   data?.role === "instractor" ||
                   data.role === "admin" ||

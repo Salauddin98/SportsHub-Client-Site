@@ -17,7 +17,7 @@ const ManageUsers = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://foreign-language-center-client.vercel.app/users/${u._id}`,
+          `https://summer-camp-serversite-salauddin98.vercel.app/users/${u._id}`,
           {
             method: "PUT",
             headers: { "content-type": "application/json" },
@@ -46,11 +46,11 @@ const ManageUsers = () => {
       <h3 className="text-4xl text-center font-semibold my-4">
         Total Users: {data.length}
       </h3>
-      <hr className="w-44 mt-2 border-[3px] mx-auto border-stone-600" />
+
       <div className="overflow-x-auto mt-8">
         <table className="table table-zebra w-full">
           {/* head */}
-          <thead className="bg-stone-600 text-white">
+          <thead className="bg-teal-950 text-white">
             <tr>
               <th className="font-bold text-base">#</th>
               <th className="font-bold text-base">Name</th>
@@ -69,7 +69,7 @@ const ManageUsers = () => {
                   <button
                     onClick={() => handelRole("admin", u)}
                     disabled={u.role === "admin" || u.role === "instractor"}
-                    className="btn btn-success"
+                    className="btn btn-info"
                   >
                     Make Admin
                   </button>
@@ -78,7 +78,7 @@ const ManageUsers = () => {
                   <button
                     onClick={() => handelRole("instractor", u)}
                     disabled={u.role === "instractor" || u.role === "admin"}
-                    className="btn btn-warning"
+                    className="btn btn-primary"
                   >
                     Make Instructor
                   </button>

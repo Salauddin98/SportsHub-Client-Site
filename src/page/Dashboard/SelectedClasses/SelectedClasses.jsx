@@ -36,10 +36,9 @@ const SelectedClasses = () => {
   return (
     <div className="w-10/12 mx-auto">
       <h1 className="font-bold text-4xl text-center">My Selected Class</h1>
-      <hr className="w-52 mt-2 border-[3px] mx-auto border-stone-600" />
       <div className="overflow-x-auto mt-8">
         <table className="table ">
-          <thead className="bg-stone-600 text-white">
+          <thead className=" bg-teal-950 text-white">
             <tr>
               <th>#</th>
               <th>Picture</th>
@@ -77,7 +76,7 @@ const SelectedClasses = () => {
                 </td>
                 <td>
                   <Link to={`/dashboard/payment/${cls._id}`}>
-                    <button className="btn btn-success btn-sm">Pay</button>
+                    <button className="btn btn-info btn-sm">Pay</button>
                   </Link>
                 </td>
               </tr>

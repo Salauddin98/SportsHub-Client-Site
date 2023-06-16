@@ -12,7 +12,7 @@ const useClass = () => {
     queryKey: ["instractorClass", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `https://foreign-language-center-client.vercel.app/class/${user?.email}`
+        `https://summer-camp-serversite-salauddin98.vercel.app/class/${user?.email}`
       );
       return res.json();
     },

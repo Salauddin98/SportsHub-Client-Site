@@ -25,7 +25,7 @@ const SocialLogin = () => {
         image: loggedInUser.photoURL,
       };
 
-      fetch("https://foreign-language-center-client.vercel.app/users", {
+      fetch("https://summer-camp-serversite-salauddin98.vercel.app/users", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -35,7 +35,7 @@ const SocialLogin = () => {
         .then((res) => res.json())
         .then(() => {
           axios
-            .post(`https://foreign-language-center-client.vercel.app/jwt`, {
+            .post(`https://summer-camp-serversite-salauddin98.vercel.app/jwt`, {
               email: result.user.email,
             })
             .then((response) => {

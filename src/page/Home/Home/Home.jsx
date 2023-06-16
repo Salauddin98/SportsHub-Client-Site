@@ -1,10 +1,15 @@
 import Banner from "../Banner/Banner";
+import Discount from "../Discount/Discount";
+import PopularClasses from "../PopularClasses/PopularClasses";
+import PopularInstractor from "../PopularInstractor/PopularInstractor";
 
 const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <p>Home Page</p>
+      <PopularClasses></PopularClasses>
+      <PopularInstractor></PopularInstractor>
+      <Discount></Discount>
     </div>
   );
 };

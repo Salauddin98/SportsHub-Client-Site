@@ -46,7 +46,7 @@ const AddClass = () => {
             status: "pending",
             feedback: "",
           };
-          fetch("https://foreign-language-center-client.vercel.app/class", {
+          fetch("https://summer-camp-serversite-salauddin98.vercel.app/class", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -72,7 +72,6 @@ const AddClass = () => {
   return (
     <div className="md:w-11/12 md:mx-auto">
       <h1 className="text-center font-bold text-4xl">Please Add Class</h1>
-      <hr className="w-40 mt-2 border-[3px] mx-auto border-stone-600" />
       <form onSubmit={handleSubmit(onSubmit)} className="w-full mx-auto mt-8">
         <div className="flex flex-wrap -mx-4">
           <div className="w-full md:w-1/2 px-4 mb-4">
@@ -139,7 +138,7 @@ const AddClass = () => {
 
           <div className="w-full md:w-1/2 px-4 mb-4">
             <label htmlFor="availableSeats" className="block mb-2 font-bold">
-              Available Seats (10-30)
+              Seats
             </label>
             <input
               {...register("availableSeats", {
@@ -189,7 +188,7 @@ const AddClass = () => {
         <div className="text-center mt-6">
           <button
             type="submit"
-            className="px-4 py-2 font-bold  rounded btn btn-warning text-white hover:bg-amber-600 "
+            className="px-4 py-2 font-bold  rounded btn btn-info"
           >
             Add Class
           </button>

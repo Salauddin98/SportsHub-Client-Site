@@ -1,22 +1,14 @@
 import { useQuery } from "react-query";
-import useAxiosSecure from "./axiosSecure";
-import { useContext } from "react";
-import { AuthContext } from "../providers/AuthProviders";
 
-const useSelectedClass = () => {
-  const { user } = useContext(AuthContext);
-  const axios = useAxiosSecure();
-
-  const {
-    refetch,
-    data = [],
-    isLoading,
-  } = useQuery(["selectedClass", user?.email], async () => {
-    const res = await axios.get(`/selectedClass/${user?.email}`);
-    const selectedClass = await res.data;
-    return selectedClass;
+const useUser = () => {
+  const { refetch, data = [] } = useQuery(["user"], async () => {
+    const res = await fetch(
+      "https://summer-camp-serversite-salauddin98.vercel.app/users"
+    );
+    const allUsers = await res.json();
+    return allUsers;
   });
-  return { data, refetch, isLoading };
+  return { data, refetch };
 };
 
-export default useSelectedClass;
+export default useUser;

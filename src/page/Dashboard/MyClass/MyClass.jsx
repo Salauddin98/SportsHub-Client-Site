@@ -11,11 +11,10 @@ const MyClass = () => {
   return (
     <div className="w-11/12 mx-auto">
       <h1 className="font-bold text-4xl text-center">My Classes</h1>
-      <hr className="w-28 mt-2 border-[3px] mx-auto border-stone-600" />
       <div className="overflow-x-auto mt-8">
         <table className="table table-xs table-pin-rows table-pin-cols">
           <thead>
-            <tr className="bg-stone-600 text-white rounded-xl">
+            <tr className="bg-teal-950 text-white rounded-xl">
               <td>#</td>
               <td>Class Name</td>
               <td>Status</td>
@@ -30,13 +29,7 @@ const MyClass = () => {
                 <td>{index + 1}</td>
                 <td>{cls.className}</td>
                 <td>
-                  <button
-                    className={`btn  btn-xs ${
-                      cls.status === "denied" && "btn-error"
-                    } ${cls.status === "approve" && "btn-success"} ${
-                      cls.status === "pending" && "btn-warning"
-                    }`}
-                  >
+                  <button className="btn-xs btn btn-secondary">
                     {cls.status}
                   </button>
                 </td>
@@ -50,14 +43,14 @@ const MyClass = () => {
                           : cls.feedback
                       )
                     }
-                    className=" btn btn-success  btn-sm"
+                    className=" btn btn-info  btn-sm"
                   >
                     Feedback
                   </button>
                 </td>
                 <td>
                   <Link to={`/dashboard/updateMyClass/${cls._id}`}>
-                    <button className="btn btn-warning btn-sm">Update</button>
+                    <button className="btn btn-primary btn-sm">Update</button>
                   </Link>
                 </td>
               </tr>

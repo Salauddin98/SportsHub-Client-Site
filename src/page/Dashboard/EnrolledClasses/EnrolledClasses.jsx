@@ -6,7 +6,7 @@ const EnrolledClasses = () => {
   const { user } = useContext(AuthContext);
   useEffect(() => {
     fetch(
-      `https://foreign-language-center-client.vercel.app/enrolledClass/${user.email}`
+      `https://summer-camp-serversite-salauddin98.vercel.app/enrolledClass/${user.email}`
     )
       .then((res) => res.json())
       .then((data) => setEnrolled(data));
@@ -16,10 +16,10 @@ const EnrolledClasses = () => {
   return (
     <div className="w-10/12 mx-auto">
       <h1 className="font-bold text-4xl text-center">My Enrolled Class</h1>
-      <hr className="w-52 mt-2 border-[3px] mx-auto border-stone-600" />
+
       <div className="overflow-x-auto mt-8">
         <table className="table ">
-          <thead className="bg-stone-600 text-white">
+          <thead className="bg-teal-950 text-white">
             <tr>
               <th>#</th>
               <th>Class Name</th>

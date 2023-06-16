@@ -18,7 +18,7 @@ const ManageClasses = () => {
 
     if (message) {
       fetch(
-        `https://foreign-language-center-client.vercel.app/singleClass/${p._id}`,
+        `https://summer-camp-serversite-salauddin98.vercel.app/singleClass/${p._id}`,
         {
           method: "PUT",
           headers: { "content-type": "application/json" },
@@ -44,7 +44,7 @@ const ManageClasses = () => {
     const status = { status: "approve" };
 
     fetch(
-      `https://foreign-language-center-client.vercel.app/singleClass/${p._id}`,
+      `https://summer-camp-serversite-salauddin98.vercel.app/singleClass/${p._id}`,
       {
         method: "PUT",
         headers: { "content-type": "application/json" },
@@ -68,7 +68,7 @@ const ManageClasses = () => {
   const stateReject = (p) => {
     const status = { status: "denied" };
     fetch(
-      `https://foreign-language-center-client.vercel.app/singleClass/${p._id}`,
+      `https://summer-camp-serversite-salauddin98.vercel.app/singleClass/${p._id}`,
       {
         method: "PUT",
         headers: { "content-type": "application/json" },
@@ -92,10 +92,10 @@ const ManageClasses = () => {
   return (
     <div className="w-10\12 mx-auto">
       <h1 className="font-bold text-4xl text-center">Manage Classes</h1>
-      <hr className="w-28 mt-2 border-[3px] mx-auto border-stone-600" />
+
       <div className="overflow-x-auto ml-5 mt-8">
         <table className="table ">
-          <thead className="bg-stone-600 text-white">
+          <thead className="bg-teal-950 text-white">
             <tr>
               <th>#</th>
               <th>Picture</th>
@@ -130,15 +130,7 @@ const ManageClasses = () => {
                 <td>{cls.availableSeats}</td>
                 <td>${cls.price}</td>
                 <td>
-                  <button
-                    className={`btn btn-xs ${
-                      cls.status === "approve" && "btn-warning"
-                    } ${cls.status === "denied" && "btn-error"} ${
-                      cls.status === "pending" && "btn-secondary"
-                    }`}
-                  >
-                    {cls.status}
-                  </button>
+                  <button className="btn-xs btn-primary">{cls.status}</button>
                 </td>
                 <td>
                   <button

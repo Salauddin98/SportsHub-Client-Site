@@ -335,7 +335,7 @@ const Navbar = () => {
   };
   return (
     <div>
-      <div className="navbar  fixed z-20  rounded-t-lg max-w-6xl bg-stone-700 text-white">
+      <div className="navbar  fixed z-20  rounded-t-lg max-w-6xl bg-teal-950 text-white">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -367,37 +367,13 @@ const Navbar = () => {
             </Link>
           </div>
           <Link to="/" className="  text-xl">
-            <h2 className="font-bold ">-Language</h2>
+            <h2 className="font-bold ">SportHubs</h2>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>
         </div>
         <div className="navbar-end">
-          {user ? (
-            <Link
-              onClick={handleLogOut}
-              className="btn btn-warning btn-sm text-white hover:bg-amber-600 mx-3"
-            >
-              Log Out
-            </Link>
-          ) : (
-            <Link
-              to="/login"
-              className="btn btn-warning btn-sm text-white hover:bg-amber-600 mx-3"
-            >
-              Login
-            </Link>
-          )}
-          {user && (
-            <img
-              id="img"
-              alt=""
-              className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-700"
-              src={user.photoURL}
-            />
-          )}
-
           <div className="lg:flex">
             <label className="swap swap-rotate">
               <input type="checkbox" onChange={handleDarkMode} />
@@ -419,6 +395,26 @@ const Navbar = () => {
               </svg>
             </label>
           </div>
+          {user ? (
+            <Link
+              onClick={handleLogOut}
+              className="btn btn-outline btn-info mx-3"
+            >
+              Log Out
+            </Link>
+          ) : (
+            <Link to="/login" className="btn btn-outline btn-info mx-3">
+              Login
+            </Link>
+          )}
+          {user && (
+            <img
+              id="img"
+              alt=""
+              className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-700"
+              src={user.photoURL}
+            />
+          )}
         </div>
       </div>
     </div>

@@ -29,7 +29,7 @@ const CheckoutForm = ({ data }) => {
 
   useEffect(() => {
     fetch(
-      "https://foreign-language-center-client.vercel.app/create-payment-intent",
+      "https://summer-camp-serversite-salauddin98.vercel.app/create-payment-intent",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -114,7 +114,7 @@ const CheckoutForm = ({ data }) => {
                         showConfirmButton: false,
                         timer: 1500,
                       });
-                      navigate("/");
+                      navigate("/dashboard/enrolledClasses");
                     });
                 });
             });

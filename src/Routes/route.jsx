@@ -110,7 +110,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://foreign-language-center-client.vercel.app/classSingle/${params.id}`
+            `https://summer-camp-serversite-salauddin98.vercel.app/classSingle/${params.id}`
           ),
       },
       {
@@ -139,7 +139,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://foreign-language-center-client.vercel.app/singleSelect/${params.id}`
+            `https://summer-camp-serversite-salauddin98.vercel.app/singleSelect/${params.id}`
           ),
       },
       {

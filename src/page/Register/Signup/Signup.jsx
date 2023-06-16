@@ -46,7 +46,7 @@
 //             GetProfile(data.name, imgURL)
 //               .then(() => {
 //                 const saveUser = { name: data.name, email: data.email };
-//                 fetch("http://localhost:5000/users", {
+//                 fetch("https://summer-camp-serversite-salauddin98.vercel.app/users", {
 //                   method: "POST",
 //                   headers: {
 //                     "content-type": "application/json",
@@ -246,6 +246,7 @@ import Swal from "sweetalert2";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProviders";
+import signup from "../../../image/login.gif";
 
 const img_hosting_token = import.meta.env.VITE_Image_Upload_token;
 const SignUp = () => {
@@ -292,7 +293,7 @@ const SignUp = () => {
                   image: imgURL,
                 };
                 fetch(
-                  "https://foreign-language-center-client.vercel.app/users",
+                  "https://summer-camp-serversite-salauddin98.vercel.app/users",
                   {
                     method: "POST",
                     headers: {
@@ -327,10 +328,6 @@ const SignUp = () => {
 
   return (
     <div className="flex flex-col md:flex-row max-w-3xl mx-auto">
-      <div className="md:w-1/2 p-8 flex items-center justify-center">
-        {/* <img src={login} alt="Registration" className="w-full h-96" /> */}
-      </div>
-
       <div className="md:w-1/2 p-8">
         <h2 className="text-2xl font-bold mb-6">Register Please</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -441,7 +438,7 @@ const SignUp = () => {
           <p className="text-red-500">{error}</p>
           <button
             type="submit"
-            className="w-full text-white py-2 px-4 rounded btn btn-warning btn-sm  hover:bg-amber-600 "
+            className="w-full btn btn-outline btn-secondary"
           >
             Register
           </button>
@@ -458,6 +455,9 @@ const SignUp = () => {
           </Link>
           .
         </p>
+      </div>
+      <div className="md:w-1/2 p-8 flex items-center justify-center">
+        <img src={signup} alt="Registration" className="w-full h-96" />
       </div>
     </div>
   );
