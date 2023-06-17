@@ -91,7 +91,7 @@ const Dashboard = () => {
           <ul className="menu p-4 w-80 h-full bg-teal-950 text-white ">
             <div className="flex items-center">
               {/* <img className="w-8" src={logo} alt="" /> */}
-              <h1 className="text-xl font-bold">-Language</h1>
+              <h1 className="text-xl font-bold">-SportsHub</h1>
             </div>
             <hr className="w-full mt-2 border-1 mx-auto border-black" />
 
