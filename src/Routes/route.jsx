@@ -70,6 +70,7 @@ const router = createBrowserRouter([
   {
     path: "dashboard",
     element: <Dashboard></Dashboard>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "manageClasses",

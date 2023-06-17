@@ -1,7 +1,8 @@
 import { Link, useRouteError } from "react-router-dom";
 // import errorImg from "../assets/90333-error.json";
 // import Lottie from "react-lottie";
-import errorImage from "../image/error.gif";
+
+import errorImage from "../../image/error.gif";
 const ErrorPage = () => {
   const { error, status } = useRouteError();
   return (
