@@ -20,7 +20,7 @@ const Footer = () => {
           <span className="footer-title">Legal</span>
           <a className="link link-hover">Terms of use</a>
           <a className="link link-hover">Privacy policy</a>
-          <a className="link link-hover">Cookie policy</a>
+          <a className="link link-hover">Maintain policy</a>
         </div>
       </footer>
       <footer className="footer px-10 py-4 border-t bg-teal-950 text-white border-base-300">
